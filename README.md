@@ -11,3 +11,4 @@
 
 ### lesson 3 (NPM)
 - [lecture](https://slides.com/danielsuleiman/npm#/)
+- [homework](/lesson-3/homework.md)
