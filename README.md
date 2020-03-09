@@ -8,3 +8,6 @@
 ### lesson 2 (Generators)
 - [lecture](https://slides.com/andrewbogomolov/generator/)
 - [homework](lesson-2/homework.md)
+
+### lesson 3 (NPM)
+- [lecture](https://slides.com/danielsuleiman/npm#/)
