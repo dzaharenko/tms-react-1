@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+  <meta charset="UTF-8"/>
   <title>Socket.IO chat</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -11,6 +12,34 @@
     #messages { list-style-type: none; margin: 0; padding: 0; }
     #messages li { padding: 5px 10px; }
     #messages li:nth-child(odd) { background: #eee; }
+
+    .modal {
+      background-color: rgba(0, 0, 0, 0.5);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal form {
+      width: 400px;
+      /*height: 150px;*/
+      position: relative;
+      background: white;
+    }
+
+    .modal input {
+      width: 100%;
+    }
+
+    .modal button {
+      width: 100%;
+    }
+
   </style>
 </head>
 <body>
@@ -19,11 +48,36 @@
   <input id="m" autocomplete="off" /><button>Send</button>
 </form>
 
+<div id="modal" class="modal">
+  <form>
+    <input type="text" placeholder="Имя" />
+    <button type="submit">Отправить</button>
+  </form>
+</div>
+
 <script src="/socket.io/socket.io.js"></script>
 <script>
   const socket = io();
   const form = document.getElementById('form');
   const message = document.getElementById('messages');
+  const modal = document.getElementById('modal');
+  let name = localStorage.getItem('name');
+
+  if (name) {
+    modal.style.display = 'none';
+    socket.emit('setName', name);
+  } else {
+    modal.querySelector('form').addEventListener('submit', event => {
+      event.preventDefault();
+      name = event.target.querySelector('input').value;
+
+      if (name && name.length) {
+        localStorage.setItem('name', name);
+        socket.emit('setName', name);
+        modal.style.display = 'none';
+      }
+    })
+  }
 
   form.addEventListener('submit', event => {
     event.preventDefault();
