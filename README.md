@@ -13,5 +13,9 @@
 - [lecture](https://slides.com/danielsuleiman/npm#/)
 - [homework](/lesson-3/homework.md)
 
-### lesson 4 (Webpack)
+### lesson 4-5 (Webpack)
 - [lecture](https://slides.com/danielsuleiman/webpack#/)
+
+### lesson 6 (SPA, MVC)
+- [lecture](https://slides.com/danielsuleiman/spa#/)
+- [homework](/lesson-6/homework.md)
