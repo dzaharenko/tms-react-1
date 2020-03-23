@@ -19,3 +19,7 @@
 ### lesson 6 (SPA, MVC)
 - [lecture](https://slides.com/danielsuleiman/spa#/)
 - [homework](/lesson-6/homework.md)
+
+### lesson 7 (React)
+- [lecture](https://slides.com/danielsuleiman/react#/)
+- [homework](/lesson-7/homework.md)
