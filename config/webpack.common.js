@@ -2,7 +2,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, '../src/index.js'),
+  entry: [
+    'react-hot-loader/patch',
+    path.resolve(__dirname, '../src/index.jsx')
+  ],
   module: {
     rules: [
       {
@@ -17,14 +20,15 @@ module.exports = {
         loader: 'html-loader',
       },
       {
-        test: /\.s[ac]ss$/i,
+        // test: /\.s[ac]ss$/i,
+        test: /\.css$/i,
         use: [
           // Creates `style` nodes from JS strings
           'style-loader',
           // Translates CSS into CommonJS
           'css-loader',
           // Compiles Sass to CSS
-          'sass-loader',
+          // 'sass-loader',
         ],
       },
       {
